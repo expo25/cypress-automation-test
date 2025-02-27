@@ -60,4 +60,21 @@ Cypress.Commands.add('fillAccountDetails', (userData) => {
     cy.get('input[data-qa="mobile_number"]').type(Cypress.env('TEST_MOBILE_NUMBER'));
     // Submit the actual form
     cy.get('button[data-qa="create-account"]').click();
+    // Commands for logging in
+    Cypress.Commands.add('login', (email, password) => {
+        cy.get('a[href="/login"]').click();
+        cy.contains('Login to your account').should('be.visible');
+        cy.get('input[data-qa="login-email"]').type(email);
+        cy.get('input[data-qa="login-password"]').type(password);
+        cy.get('button[data-qa="login-button"]').click();
+        cy.contains('Logged in as').should('be.visible');
+    });
+    // Commands for payment details
+    Cypress.Commands.add('fillPaymentDetails', (paymentData) => {
+        cy.get('input[data-qa="name-on-card"]').type(paymentData.cardName);
+        cy.get('input[data-qa="card-number"]').type(paymentData.cardNumber);
+        cy.get('input[data-qa="cvc"]').type(paymentData.cvc);
+        cy.get('input[data-qa="expiry-month"]').type(paymentData.expiryMonth);
+        cy.get('input[data-qa="expiry-year"]').type(paymentData.expiryYear);
+    });
 })
