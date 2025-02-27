@@ -32,7 +32,7 @@ npx cypress open
 ```ps1
 npx cypress run
 ```
-🔸 Run tests headlessly:
+🔸 Run tests with the UI displaying:
 ```ps1
 npx cypress run --headed
 ```
