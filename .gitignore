@@ -1,0 +1,22 @@
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Other Directories
+lib-cov
+.grunt
+coverage
+.lock-wscript
+
+# Dependency Directories
+cypress/videos
+cypress/screenshots
+node_modules
+
+# Secrets & Credentials
+.env
