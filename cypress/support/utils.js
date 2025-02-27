@@ -5,8 +5,7 @@ function generateRandomString(length) {
 }
 
 function generateRandomEmail() {
-    const timestamp = new Date().getTime();
-    return `test_${timestamp}${generateRandomString(5)}@example.com`;
+    return `test_${generateRandomString(5)}@example.com`;
 }
 
 module.exports = {
