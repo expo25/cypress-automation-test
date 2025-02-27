@@ -49,6 +49,13 @@ npm run e2e:edge
 🔸 The MIT liscense which allows us to use Cypress's software as my own was pulled from Cypress's GitHub repo & included [here](./LICENSE.txt) in the project's root.<br>
 🔸 [Click here](https://medium.com/@shalininagaraj1990/what-are-fixtures-in-cypress-5fd1ed0298b8) to find a good introductory article I found that explains how to use fixtures in Cypress.
 
+## Environment Variables
+🔸 You'll need to add the following variables to your `.env` file:
+```.env
+TEST_PASSWORD=
+TEST_MOBILE_NUMBER=
+```
+
 ## Tools Used
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)<br>
 ![npm](https://img.shields.io/badge/npm-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)<br>
