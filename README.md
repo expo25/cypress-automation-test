@@ -46,6 +46,10 @@ npx cypress run --headed
 ```ps1
 npm run e2e:edge
 ```
+🔸 Run specific test files:
+```ps1
+npx cypress run --spec "cypress/e2e/name-of-file.cy.js"
+```
 ## Additional Information
 🔸 I have the 'node_modules' folder added to the `.gitignore` file.<br> 
 🔸 In stricter cases, I might not do this. However, I don't care about reproducible builds here. Plus, we have a `package-lock.json` file included by git.<br>
