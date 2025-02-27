@@ -32,6 +32,10 @@ npx cypress open
 ```ps1
 npx cypress run
 ```
+🔸 Run tests headlessly:
+```ps1
+npx cypress run --headed
+```
 🔸 My `package.json` files contains a script that allows us to run tests native to the 'e2e' folder using my browser choice of msedge:
 ```json
   "scripts": {
