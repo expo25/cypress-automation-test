@@ -46,7 +46,7 @@ npm run e2e:edge
 🔸 I have the 'node_modules' folder added to the `.gitignore` file.<br> 
 🔸 In stricter cases, I might not do this. However, I don't care about reproducible builds here. Plus, we have a `package-lock.json` file included by git.<br>
 🔸 If you'd like a direct copy of my 'node_modules,' contact me.<br>
-🔸 The MIT liscense which allows us to use Cypress's software as my own was pulled from my node_modules folder & included in the project's root.<br>
+🔸 The MIT liscense which allows us to use Cypress's software as my own was pulled from Cypress's GitHub repo & included [here](./LICENSE.txt) in the project's root.<br>
 🔸 [Click here](https://medium.com/@shalininagaraj1990/what-are-fixtures-in-cypress-5fd1ed0298b8) to find a good introductory article I found that explains how to use fixtures in Cypress.
 
 ## Tools Used
