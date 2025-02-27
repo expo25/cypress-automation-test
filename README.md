@@ -27,7 +27,7 @@ npm install cypress --save-dev
 npx cypress open
 ```
 🔸 A separate pop-up window should appear where you can setup your project configuration.<br>
-🔸 Once you choose your browser, you can either setup your scripts via the UI or the `spec.js` files.<br>
+🔸 Once you choose your browser, you can either setup your scripts via the UI or the `cy.js` files.<br>
 🔸 Run all tests headlessly be default:
 ```ps1
 npx cypress run
