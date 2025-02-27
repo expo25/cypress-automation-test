@@ -13,6 +13,13 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      on('before:browser:launch', (browser, launchOptions) => {
+        if (browser.name === 'edge') {
+          // Sets up edge specific settings & avoids any potential cross-site issues.
+          launchOptions.args.push('--disable-features=CrossSiteDocumentBlockingIfIsolating,CrossSiteDocumentBlockingAlways,IsolateOrigins,site-per-process')
+        }
+        return launchOptions;
+      });
     },
   },
 });
