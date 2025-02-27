@@ -29,6 +29,11 @@ describe('New user registration', () => {
 
         // Verify successful account creation
         cy.contains('Account Created!').should('be.visible');
+        // Write dynamically generated credentials to json file.
+        cy.writeFile('cypress/fixtures/registered-user.json', {
+            email: this.userData.email, // Obtained from generateRandomEmail
+            password: this.userData.password, // Obtained from Cypress.env('TEST_PASSWORD')
+        });
 
         // Click Continue button
         cy.get('a[data-qa="continue-button"]').click();
