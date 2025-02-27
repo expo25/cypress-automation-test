@@ -1,0 +1,18 @@
+{
+  "name": "cypress-example-project",
+  "version": "1.0.0",
+  "description": "Cypress Beginner Test Project",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "e2e:edge": "cypress run --browser edge"
+  },
+  "author": "expo25",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^14.1.0"
+  }, 
+  "engines": {
+    "node": "^23.9.0"
+  }
+}
