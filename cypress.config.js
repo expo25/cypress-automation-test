@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     // Using cy.visit('/') will bring us to this url.
-    baseUrl: 'https://automationexercise.com',
+    baseUrl: 'https://automationexercise.com/',
     // Set to standard HD resolution. I think this will avoid the edge pop-up not taking up the entire screen.
     viewportHeight: 1280,
     viewportHeight: 720,
@@ -33,6 +33,6 @@ module.exports = defineConfig({
   },
   env: {
     // We don't neccesarily need this cause we already set the baseUrl. But it can useful if we want to reference the full url from our code for reasons other than navigation.
-    url: 'https://automationexercise.com'
+    url: 'https://automationexercise.com/'
   }
 });
