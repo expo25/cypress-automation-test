@@ -19,4 +19,5 @@ cypress/screenshots
 node_modules
 
 # Secrets & Credentials
-.env
+cypress.env.json
+registered-user.json
