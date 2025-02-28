@@ -29,22 +29,15 @@ describe('New user registration', () => {
 
         // Verify successful account creation
         cy.contains('Account Created!').should('be.visible');
+
+        // verify user is logged in
+        cy.get('a[data-qa="continue-button"]').click();
+        cy.contains(` Logged in as ${this.userData.name}`).should('be.visible');
+
         // Write dynamically generated credentials to json file.
         cy.writeFile('cypress/fixtures/registered-user.json', {
             email: this.userData.email, // Obtained from generateRandomEmail
             password: this.userData.password, // Obtained from Cypress.env('TEST_PASSWORD')
-        });
-
-        // Click Continue button
-        cy.get('a[data-qa="continue-button"]').click();
-
-        // Verify user is logged in
-        cy.contains(` Logged in as ${this.userData.name}`).should('be.visible');
-
-        // Store credentials in environment variable for future use
-        Cypress.env('registeredUser', {
-            email: this.userData.email,
-            password: this.userData.password
         });
 
         // Logout
