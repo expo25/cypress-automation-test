@@ -20,3 +20,4 @@ node_modules
 
 # Secrets & Credentials
 cypress.env.json
+registered-user.json
