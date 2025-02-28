@@ -64,6 +64,15 @@ TEST_PASSWORD=
 TEST_MOBILE_NUMBER=
 ```
 
+## Test Dependencies
+🔸 Some tests, such as the [user-registration test](../cypress-example-project/cypress/e2e/user-registration.cy.js) create new credentials by registering a new user.<br>
+🔸 These credentials are then dynamically generated in a `.json` file, and then used subsequentially in the [login test](../cypress-example-project/cypress/e2e/login.cy.js).<br>
+🔸 Therefore, it is reccomended to execute these tests in the following order:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 `user-registration.cy.js`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 `login.cy.js`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 `add-to-cart.js`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 `checkout.cy.js`
+
 ## Tools Used
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)<br>
 ![npm](https://img.shields.io/badge/npm-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)<br>
