@@ -1,4 +1,4 @@
-const { generateRandomEmail } = require("../support/utils");
+import { generateRandomEmail } from "../support/utils";
 
 describe('New user registration', () => {
     beforeEach(() => {

@@ -8,7 +8,7 @@ function generateRandomEmail() {
     return `test_${generateRandomString(5)}@example.com`;
 }
 
-module.exports = {
+export {
     generateRandomString,
     generateRandomEmail
 }
