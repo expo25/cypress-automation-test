@@ -4,6 +4,13 @@
 🔸 The goal is to prove automation competency using Cypress by writing test scripts for a [sample e-commerce website.](https://automationexercise.com/)<br>
 🔸 I am literally learning how to use this tool as I go.
 
+## Jump to Section
+🔸 [Installation](#installation-guide)<br>
+🔸 [Additional Information](#additional-information)<br>
+🔸 [Environment Variables](#environment-variables)<br>
+🔸 [Test Dependencies](#test-dependencies)<br>
+🔸 [Development Tools Used](#tools-used)
+
 ## Installation Guide
 🔸 This follows the [Cypress Docs](https://docs.cypress.io/) website to get us started.<br>
 🔸 Open up the folder where your project root is in VS Code.<br>
