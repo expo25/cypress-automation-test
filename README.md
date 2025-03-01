@@ -68,10 +68,15 @@ npx cypress run --spec "cypress/e2e/name-of-first-file.cy.js,name-of-SECOND-file
 TEST_PASSWORD=
 TEST_MOBILE_NUMBER=
 ```
+🔸 It would be best to include data found in the [cc-payment-details](./cypress/fixtures/cc-payment-details.json) file as environment variables since it contains sensitive test data like credit card information.<br>
+🔸 But I don't because the data is:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 Fake.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 Helps us better understand fixtures by using multiple files within the test suite.<br>
+🔸 What will the GitHub bots have to say about this? 🤔
 
 ## Test Dependencies
-🔸 Some tests, such as the [user-registration test](../cypress-example-project/cypress/e2e/user-registration.cy.js) create new credentials by registering a new user.<br>
-🔸 These credentials are then dynamically generated in a `.json` file, and then used subsequentially in the [login test](../cypress-example-project/cypress/e2e/login.cy.js).<br>
+🔸 Some tests, such as the [user-registration test](./cypress/e2e/user-registration.cy.js) create new credentials by registering a new user.<br>
+🔸 These credentials are then dynamically generated in a `.json` file, and then used subsequentially in the [login test](./cypress/e2e/login.cy.js).<br>
 🔸 Therefore, it is reccomended to execute these tests in the following order:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 `user-registration.cy.js`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 `login.cy.js`<br>
