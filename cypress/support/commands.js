@@ -50,10 +50,10 @@ Cypress.Commands.add('login', (email, password) => {
 });
 
 // Obtain payment details
-Cypress.Commands.add('fillPaymentDetails', (paymentData) => {
-    cy.get('input[data-qa="name-on-card"]').type(paymentData.cardName);
-    cy.get('input[data-qa="card-number"]').type(paymentData.cardNumber);
-    cy.get('input[data-qa="cvc"]').type(paymentData.cvc);
-    cy.get('input[data-qa="expiry-month"]').type(paymentData.expiryMonth);
-    cy.get('input[data-qa="expiry-year"]').type(paymentData.expiryYear);
+Cypress.Commands.add('fillPaymentDetails', (userData, paymentDetails) => {
+    cy.get('input[data-qa="name-on-card"]').type(userData.name);
+    cy.get('input[data-qa="card-number"]').type(paymentDetails.cardNumber);
+    cy.get('input[data-qa="cvc"]').type(paymentDetails.cvc);
+    cy.get('input[data-qa="expiry-month"]').type(paymentDetails.expiryMonth);
+    cy.get('input[data-qa="expiry-year"]').type(paymentDetails.expiryYear);
 });

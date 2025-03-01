@@ -10,33 +10,24 @@ describe('New user registration', () => {
             this.userData.password = Cypress.env('TEST_PASSWORD');
             this.userData.mobileNumber = Cypress.env('TEST_MOBILE_NUMBER');
         });
-        // Nav to homepage
         cy.visit('/');
     });
     it('Verify a new user was successfully registered', function () {
-        // Navigate to signup page
+        // Navigate to signup page & fill out form
         cy.get('a[href="/login"]').click();
         cy.contains('New User Signup!').should('be.visible');
-
-        // Fill out signup form with generated unique email
         cy.fillSignupForm(this.userData.name, this.userData.email);
 
-        // Verify we're on the account creation page
+        // Create & verify account
         cy.contains('Enter Account Information').should('be.visible');
-
-        // Fill out account details
         cy.fillAccountDetails(this.userData);
-
-        // Verify successful account creation
         cy.contains('Account Created!').should('be.visible');
-
-        // verify user is logged in
         cy.get('a[data-qa="continue-button"]').click();
         cy.contains(` Logged in as ${this.userData.name}`).should('be.visible');
 
-        // Write dynamically generated credentials to json file.
+        // Write dynamically generated credentials to json file to use in next test(s).
         cy.writeFile('cypress/fixtures/registered-user.json', {
-            email: this.userData.email, // Obtained from generateRandomEmail
+            email: this.userData.email, // Obtained from generateRandomEmail()
             password: this.userData.password, // Obtained from Cypress.env('TEST_PASSWORD')
         });
 

@@ -1,7 +1,7 @@
 ## Purpose of Project
 🔸 This is a beginner automation test project that utilizes Cypress.<br>
 🔸 It assumes you have the basic understanding of javascript, node, the cli & test automation as a whole.<br>
-🔸 The goal is to prove automation competency using our tool of choice by writing test scripts for a [sample e-commerce website.](https://automationexercise.com/)<br>
+🔸 The goal is to prove automation competency using Cypress by writing test scripts for a [sample e-commerce website.](https://automationexercise.com/)<br>
 🔸 I am literally learning how to use this tool as I go.
 
 ## Installation Guide
@@ -28,7 +28,7 @@ npx cypress open
 ```
 🔸 A separate pop-up window should appear where you can setup your project configuration.<br>
 🔸 Once you choose your browser, you can either setup your scripts via the UI or the `cy.js` files.<br>
-🔸 Run all tests headlessly be default:
+🔸 Run all tests headlessly by default:
 ```ps1
 npx cypress run
 ```
@@ -36,7 +36,8 @@ npx cypress run
 ```ps1
 npx cypress run --headed
 ```
-🔸 My `package.json` files contains a script that allows us to run tests native to the 'e2e' folder using my browser choice of msedge:
+🔸 My `package.json` file contains a script that allows us to run tests native to the 'e2e' folder using my browser choice of Microsoft Edge.<br>
+🔸 You can adjust to use your browser of choice.<br>
 ```json
   "scripts": {
     "e2e:edge": "cypress run --browser edge"
@@ -46,27 +47,36 @@ npx cypress run --headed
 ```ps1
 npm run e2e:edge
 ```
-🔸 Run specific test files:
+🔸 How to run specific test files:
 ```ps1
+# Single test file 👇🏽
 npx cypress run --spec "cypress/e2e/name-of-file.cy.js"
+# Multiple test files 👇🏽
+npx cypress run --spec "cypress/e2e/name-of-first-file.cy.js,name-of-SECOND-file.cy.js"
 ```
 ## Additional Information
-🔸 I have the 'node_modules' folder added to the `.gitignore` file.<br> 
-🔸 In stricter cases, I might not do this. However, I don't care about reproducible builds here. Plus, we have a `package-lock.json` file included by git.<br>
-🔸 If you'd like a direct copy of my 'node_modules,' contact me.<br>
+🔸 I have the `node_modules` folder added to the `.gitignore` file.<br> 
+🔸 In stricter cases, I might not do this. However, I don't care about reproducible builds here. Plus, we have a `package-lock.json` file included in this remote repo.<br>
+🔸 If you'd like a direct copy of my `node_modules`, contact me.<br>
 🔸 The MIT liscense which allows us to use Cypress's software as my own was pulled from Cypress's GitHub repo & included [here](./LICENSE.txt) in the project's root.<br>
 🔸 [Click here](https://medium.com/@shalininagaraj1990/what-are-fixtures-in-cypress-5fd1ed0298b8) to find a good introductory article I found that explains how to use fixtures in Cypress.
 
 ## Environment Variables
-🔸 You'll need to add the following variables to your `.env` file:
+🔸 Create a file called `cypress.env.json` in your project's root. This will host variables containing sensitive test data that we don't want in git. <br>
+🔸 Add the following to the file:
 ```.env
 TEST_PASSWORD=
 TEST_MOBILE_NUMBER=
 ```
+🔸 It would be best to include data found in the [cc-payment-details](./cypress/fixtures/cc-payment-details.json) file as environment variables since it contains sensitive test data like credit card information.<br>
+🔸 But I don't because the data is:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 Fake.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 Helps us better understand fixtures by using multiple files within the test suite.<br>
+🔸 What will the GitHub bots have to say about this? 🤔
 
 ## Test Dependencies
-🔸 Some tests, such as the [user-registration test](../cypress-example-project/cypress/e2e/user-registration.cy.js) create new credentials by registering a new user.<br>
-🔸 These credentials are then dynamically generated in a `.json` file, and then used subsequentially in the [login test](../cypress-example-project/cypress/e2e/login.cy.js).<br>
+🔸 Some tests, such as the [user-registration test](./cypress/e2e/user-registration.cy.js) create new credentials by registering a new user.<br>
+🔸 These credentials are then dynamically generated in a `.json` file, and then used subsequentially in the [login test](./cypress/e2e/login.cy.js).<br>
 🔸 Therefore, it is reccomended to execute these tests in the following order:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 `user-registration.cy.js`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸 `login.cy.js`<br>

@@ -21,7 +21,7 @@ describe('Checkout Process', () => {
             // Proceed to checkout
             cy.get('a.btn.check_out').contains('Proceed To Checkout').click();
 
-            // Verify delivery address matches user data
+            // Verify delivery address matches user data address
             cy.get('.checkout-information').within(() => {
                 cy.contains(this.userData.firstName + ' ' + this.userData.lastName).should('be.visible');
                 cy.contains(this.userData.address1).should('be.visible');
@@ -29,18 +29,15 @@ describe('Checkout Process', () => {
             });
             cy.get('a.btn.check_out').contains('Place Order').scrollIntoView().click();
 
-            // This should be coming from a fixture file, I just did not have time to add it.
-            cy.fillPaymentDetails({
-                cardName: 'Test User',
-                cardNumber: '4111111111111111',
-                cvc: '123',
-                expiryMonth: '12',
-                expiryYear: '2025',
+            // Load fixture data then call flllPaymentDetails command using test data
+            cy.fixture('cc-payment-details').then(function (paymentDetails) {
+                cy.fillPaymentDetails(this.userData, paymentDetails)
             });
 
             // Place an order
             cy.get('button[data-qa="pay-button"]').click();
-            // Verify success message then continue to homePage
+
+            // Verify success message
             cy.contains('Order Placed!').should('be.visible');
             cy.contains('Congratulations! Your order has been confirmed!').should('be.visible');
             cy.get('a[data-qa="continue-button"]').click();
